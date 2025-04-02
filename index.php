@@ -6,6 +6,6 @@ require_once __DIR__ . '/models/OrderRepository.php';
 
 $db = new DatabaseConnection;
 
-$ClientOrders = $db->getConnection()->query('SELECT * FROM Clients, Orders')->fetchAll();
+$ClientOrders = $db->getConnection()->query('SELECT * FROM Clients')->fetchAll();
 
 var_dump($ClientOrders);

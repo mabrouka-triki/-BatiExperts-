@@ -14,7 +14,7 @@ class DatabaseConnection {
             
             // Définition des paramètres de connexion à la base de données
             $host = 'localhost';            // Hôte de la base de données (serveur local)
-            $dbname = 'BatiExpertsgit';          // Nom de la base de données
+            $dbname = 'BatiExperts';          // Nom de la base de données
             $username = 'root';             // Utilisateur de la base de données / L'utilisateur root peut effectuer toutes les actions sans avoir à définir des permissions spécifiques.
             $password = '';                 // Mot de passe de l'utilisateur
             $charset = 'utf8mb4';           // Encodage des caractères (UTF-8)

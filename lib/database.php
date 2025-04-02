@@ -41,4 +41,8 @@ class DatabaseConnection {
         // Si la connexion existe déjà, on la retourne
         return $this->database;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Clients

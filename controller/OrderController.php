@@ -27,6 +27,8 @@ class OrderController
         $order = $this->orderRepository->getOrder($id);
         
         // Affichage de la commande via la vue view-order.php
-        require_once __DIR__ . '/../view/view-order.php';
+        require_once __DIR__ . '/../view/order-view.php';
     }
+
+
 }

@@ -47,4 +47,19 @@ class OrderRepository
 
         return $order;
     }
+
+
+    public function update(Order $order): bool
+{
+    $statement = $this->connection
+        ->getConnection()
+        ->prepare('UPDATE orders SET title = :title, status = :status WHERE id = :id');
+
+    return $statement->execute([
+        'id' => $order->getId(),
+        'title' => $order->getTitle(),
+        'status' => $order->getStatus()
+    ]);
+}
+
 }

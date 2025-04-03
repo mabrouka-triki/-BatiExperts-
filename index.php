@@ -16,13 +16,10 @@ $orders = $orderRepo->getOrders();
 
 
 
-
 if (isset($_GET['action']) && $_GET['action'] == 'view' && isset($_GET['id'])) {
-    $orders = $orderRepo->getOrders($_GET['id']);;
+    $order = $orderRepo->getOrder($_GET['id']); // On récupère UNE commande
     require_once __DIR__ . '/view/order-view.php';
-
 } else {
-    
-    $orders = $orderRepo->getOrders();
-    require_once __DIR__ . '/view/home.php';    
+    $orders = $orderRepo->getOrders(); // On récupère toutes les commandes
+    require_once __DIR__ . '/view/home.php';
 }

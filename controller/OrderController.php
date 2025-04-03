@@ -7,28 +7,68 @@ class OrderController
 
     public function __construct()
     {
-        // Création de l'instance du repository
         $this->orderRepository = new OrderRepository();
     }
 
-    // Méthode pour afficher toutes les commandes
+    // Liste des commandes
     public function home()
     {
-        // Récupérer toutes les commandes via le repository
         $orders = $this->orderRepository->getOrders();
-
-        // Affichage des commandes via la vue home.php
         require_once __DIR__ . '/../view/home.php';
     }
 
-    // Méthode pour afficher une commande spécifique par ID
+    // Afficher une commande
     public function show(int $id)
     {
         $order = $this->orderRepository->getOrder($id);
-        
-        // Affichage de la commande via la vue view-order.php
         require_once __DIR__ . '/../view/order-view.php';
     }
 
+    // Formulaire de création
+    public function create()
+    {
+        require_once __DIR__ . '/../view/order-create.php';
+    }
 
+    // Enregistrer une nouvelle commande
+    public function store()
+    {
+        $order = new Order();
+        $order->setTitle($_POST['title']);
+        $order->setStatus($_POST['status']);
+        $this->orderRepository->create($order);
+
+        header('Location: ?');
+        exit;
+    }
+
+    // Modifier une commande
+    public function edit(int $id)
+    {
+        $order = $this->orderRepository->getOrder($id);
+        require_once __DIR__ . '/../view/order-edit.php';
+    }
+
+    // Mettre à jour une commande
+    public function update()
+    {
+        $order = new Order();
+        $order->setId($_POST['id']);
+        $order->setTitle($_POST['title']);
+        $order->setStatus($_POST['status']);
+
+        $this->orderRepository->update($order);
+
+        header('Location: ?');
+        exit;
+    }
+
+    // Supprimer une commande
+    public function delete(int $id)
+    {
+        $this->orderRepository->delete($id);
+        header('Location: ?');
+        exit;
+    }
 }
+?>

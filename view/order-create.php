@@ -8,13 +8,9 @@
         <input type="text" class="form-control" id="title" name="title" required>
     </div>
     <div class="mb-3">
-        <label for="description" class="form-label">Description :</label>
-        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-    </div>
-    <div class="mb-3">
-        <label for="Statut" class="form-label">Statut :</label>
+        <label for="status" class="form-label">Statut :</label>
         <select class="form-control" name="status" id="status">
-            <option value="a-faire">A faire</option>
+            <option value="a-faire">À faire</option>
             <option value="en-cours">En cours</option>
             <option value="termine">Terminée</option>
         </select>
@@ -24,4 +20,4 @@
 
 <a href="?" class="btn btn-secondary">Retour à la liste</a>
 
-<?php require_once __DIR__ . '/templates/footer.php'; 
+<?php require_once __DIR__ . '/template/footer.php'; ?>

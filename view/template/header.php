@@ -16,7 +16,7 @@
                         <a class="nav-link" href="?">🏠 Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?action=create">⊕ Nouvelle commande</a>
+                        <a class="nav-link" href="?action=order-create">⊕ Nouvelle commande</a>
                     </li>
                 </ul>
             </div>

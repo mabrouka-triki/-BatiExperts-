@@ -39,7 +39,7 @@ class OrderController
         $this->orderRepository->create($order);
 
         header('Location: ?');
-        exit;
+ 
     }
 
     // Modifier une commande
@@ -60,7 +60,7 @@ class OrderController
         $this->orderRepository->update($order);
 
         header('Location: ?');
-        exit;
+    
     }
 
     // Supprimer une commande
@@ -68,7 +68,15 @@ class OrderController
     {
         $this->orderRepository->delete($id);
         header('Location: ?');
-        exit;
+  
+    }
+
+    // Gestion des accès interdits
+    public function forbidden()
+    {
+        http_response_code(403);
+        require_once __DIR__ . '/../view/404.php';
+   
     }
 }
 ?>

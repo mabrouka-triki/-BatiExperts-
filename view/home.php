@@ -23,7 +23,8 @@
                 <td><?= htmlspecialchars($order->getStatus()); ?></td>
                 <td>
                     <a href="?action=view&id=<?= $order->getId() ?>" class="btn btn-primary btn-sm">👀</a>
-                    <a href="?action=edit&id=<?= $order->getId() ?>" class="btn btn-warning btn-sm">✏️</a>
+                    <a href="?action=edit&id=<?= $order->getId(); ?>" class="btn btn-warning">✏️ Modifier</a>
+            
                     <a onclick="return confirm('T’es sûr ?');" href="?action=delete&id=<?= $order->getId() ?>" class="btn btn-dark btn-sm">❌</a>
                 </td>
             </tr>

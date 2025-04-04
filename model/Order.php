@@ -7,7 +7,7 @@ class Order
     private int $id;
     private string $title;
     private string $status;
-
+    private int $clientId; // Ajout de l'attribut clientId
     // Getters
     public function getId(): int
     {
@@ -23,12 +23,17 @@ class Order
     {
         return $this->status;
     }
+    public function getClientId(): int
+    {
+        return $this->clientId;
+    }
 
     // Setters
     public function setId(int $id): void
     {
         $this->id = $id;
     }
+
 
     public function setTitle(string $title): void
     {
@@ -38,5 +43,9 @@ class Order
     public function setStatus(string $status): void
     {
         $this->status = $status;
+    }
+    public function setClientId(int $clientId): void
+    {
+        $this->clientId = $clientId;
     }
 }

@@ -21,6 +21,9 @@ class OrderController
     public function show(int $id)
     {
         $order = $this->orderRepository->getOrder($id);
+        $client = $this->clientRepository->getClient($order->getClientId());
+        $orders = $this->orderRepository->getOrdersByClientId($client->getId());
+    
         require_once __DIR__ . '/../view/order-view.php';
     }
 
@@ -36,6 +39,7 @@ class OrderController
         $order = new Order();
         $order->setTitle($_POST['title']);
         $order->setStatus($_POST['status']);
+
         $this->orderRepository->create($order);
 
         header('Location: ?');

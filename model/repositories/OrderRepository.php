@@ -22,11 +22,34 @@ class OrderRepository
             $order->setId($row['id']);
             $order->setTitle($row['title']);
             $order->setStatus($row['status']);
+            $order->setClientId($row['client_id']); // Ajout du client I
+        
             $orders[] = $order;
         }
 
         return $orders;
     }
+    public function getOrdersByClientId(int $id): array
+{
+    $statement = $this->connection->getConnection()->prepare(
+        "SELECT * FROM orders WHERE client_id = :id"
+    );
+    $statement->execute(['id' => $id]);
+
+    $orders = [];
+    foreach ($statement as $row) {
+        $order = new Order();
+        $order->setId($row['id']);
+        $order->setTitle($row['titlae']);
+        $order->setStatus($row['status']);
+        $order->setClientId($row['client_id']);
+   
+        $orders[] = $order;
+    }
+
+    return $orders;
+}
+
 
     // Récupérer une seule commande par ID
     public function getOrder(int $id): ?Order
@@ -43,9 +66,13 @@ class OrderRepository
         $order->setId($result['id']);
         $order->setTitle($result['title']);
         $order->setStatus($result['status']);
+            $order->setClientId($result['client_id']); // Ajout du client ID
 
         return $order;
     }
+
+
+    
     // Mise à jour d'une commande
     public function update(Order $order): bool
     {
